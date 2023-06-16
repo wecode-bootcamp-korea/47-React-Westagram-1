@@ -7,6 +7,7 @@ const Login = () => {
 
   const [id, setID] = useState('');
   const [pw, setPw] = useState('');
+  const [loginBtn, setloginBtn] = useState(false);
 
   const saveUserId = event => {
     setID(event.target.value);
@@ -14,6 +15,12 @@ const Login = () => {
 
   const saveUserPw = event => {
     setPw(event.target.value);
+  };
+
+  const passedLogin = () => {
+    return id.includes('@') && pw.length >= 5
+      ? setloginBtn(true)
+      : setloginBtn(false);
   };
 
   return (
@@ -26,19 +33,25 @@ const Login = () => {
           <input
             type="text"
             placeholder="전화번호, 사용자 이름 또는 이메일"
-            id="id"
+            className="id"
             value={id}
             onChange={saveUserId}
+            onKeyUp={passedLogin}
           />
           <input
             type="password"
             placeholder="비밀번호"
-            id="pw"
+            className="pw"
             value={pw}
             onChange={saveUserPw}
+            onKeyUp={passedLogin}
           />
           {/* <Link to="/main">이동</Link> */}
-          <button onClick={() => navigate('/main')} className="loginBtn">
+          <button
+            onClick={() => navigate('/main-jini')}
+            className={loginBtn ? 'activeLoginBtn' : 'loginBtn'}
+            disabled={id === '' || pw === '' ? true : false}
+          >
             로그인
           </button>
           {/* <button id="loginBtn" onclick="location='./main.html'" disabled>

@@ -47,6 +47,16 @@
     font-weight: bold;
   }
 
+  .activeLoginBtn {
+    height: 35px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    background: #0095f6;
+    color: $white;
+    font-weight: bold;
+  }
+
   .findPassword {
     display: block;
     margin: 180px 0 30px 0;
