@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Main.scss';
 import Nav from '../../../components/Nav/Nav';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -10,6 +10,21 @@ import {
 } from '@fortawesome/free-regular-svg-icons';
 
 const Main = () => {
+  const [commentList, setCommentList] = useState([]);
+  const [newComment, setNewComment] = useState('');
+
+  const handleCommentSubmit = e => {
+    e.preventDefault();
+    if (newComment.trim() === '') {
+      return;
+    }
+
+    setCommentList([...commentList, newComment]);
+    setNewComment('');
+  };
+
+  const newCommentInput = event => setNewComment(event.target.value);
+
   return (
     <div className="Main">
       <Nav />
@@ -59,31 +74,35 @@ const Main = () => {
 
                 <div className="commentsBox">
                   <ul>
-                    <li className="commentBox">
-                      <div className="left">
-                        <div className="commentId">abc</div>
-                        <div className="comment">너어무 기여워</div>
-                      </div>
+                    {commentList.map((newComment, index) => (
+                      <li className="commentBox" key={index}>
+                        <div className="left">
+                          <div className="commentId">genie</div>
+                          <div className="comment">{newComment}</div>
+                        </div>
 
-                      <div className="right">
-                        <button className="commentRemoveBtn">X</button>
-                        <button className="commentlikeBtn">
-                          <FontAwesomeIcon
-                            icon={faHeart}
-                            className="commentlike"
-                          />
-                        </button>
-                      </div>
-                    </li>
+                        <div className="right">
+                          <button className="commentRemoveBtn">X</button>
+                          <button className="commentlikeBtn">
+                            <FontAwesomeIcon
+                              icon={faHeart}
+                              className="commentlike"
+                            />
+                          </button>
+                        </div>
+                      </li>
+                    ))}
                   </ul>
                 </div>
 
-                <form className="commentPost">
+                <form className="commentPost" onSubmit={handleCommentSubmit}>
                   <input
                     required
                     type="text"
                     placeholder="댓글 달기..."
                     className="inputText"
+                    value={newComment}
+                    onChange={newCommentInput}
                   />
                   <button type="submit" className="submitBtn">
                     게시

@@ -9,13 +9,9 @@ const Login = () => {
   const [pw, setPw] = useState('');
   const [loginBtn, setloginBtn] = useState(false);
 
-  const saveUserId = event => {
-    setID(event.target.value);
-  };
+  const saveUserId = event => setID(event.target.value);
 
-  const saveUserPw = event => {
-    setPw(event.target.value);
-  };
+  const saveUserPw = event => setPw(event.target.value);
 
   const passedLogin = () => {
     return id.includes('@') && pw.length >= 5
