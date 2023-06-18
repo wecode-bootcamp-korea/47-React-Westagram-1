@@ -1,3 +1,348 @@
-div {
-  font-size: 24px;
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import '/src/styles/variables.scss';
+
+.mainPage {
+  background-color: rgb(242, 242, 242);
+
+  .mainFeed {
+    background-color: white;
+    position: relative;
+    top: 40px;
+    left: 290px;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    width: 430px;
+    height: 690px;
+  }
+  .myName {
+    position: relative;
+    left: 40px;
+    bottom: 43px;
+    font-weight: bold;
+    font-size: 17px;
+  }
+
+  .profilePicture {
+    border-radius: 100px;
+    width: 27px;
+    height: 27px;
+    position: relative;
+    left: 5px;
+    margin-top: 5px;
+    margin-bottom: 12px;
+  }
+
+  .feedPicture {
+    border-radius: 3px;
+    width: 428px;
+    height: 410px;
+  }
+
+  .feedIcon {
+    display: flex;
+    justify-content: space-between;
+    width: 70px;
+    margin-left: 10px;
+  }
+
+  .like {
+    margin-top: 2px;
+  }
+  .comment {
+    margin-left: 5px;
+  }
+  .share {
+    margin-left: 5px;
+  }
+
+  .save {
+    position: relative;
+    left: 330px;
+  }
+
+  .receiveLike {
+    font-size: 12px;
+  }
+  .likeProfile {
+    border-radius: 100px;
+    width: 20px;
+    height: 20px;
+    margin-top: 7px;
+    margin-left: 10px;
+    margin-right: 5px;
+  }
+
+  .likerName,
+  .likerNumber {
+    font-weight: bold;
+    position: relative;
+    bottom: 5px;
+    font-size: 12px;
+  }
+  .text {
+    position: relative;
+    bottom: 5px;
+  }
+
+  .feedInfo {
+    position: relative;
+    top: 7px;
+    left: 10px;
+    font-weight: bold;
+    font-size: 12px;
+  }
+  .infoText {
+    position: relative;
+    top: 7px;
+    left: 10px;
+    font-size: 12px;
+  }
+
+  .more {
+    text-decoration: none;
+    position: relative;
+    left: 280px;
+    bottom: 8px;
+    color: gray;
+    font-size: 12px;
+  }
+  .time {
+    color: gray;
+    font-size: 12px;
+    position: relative;
+    left: 10px;
+    bottom: 30px;
+  }
+
+  .userName {
+    position: relative;
+    top: 20px;
+    left: 10px;
+    font-weight: bold;
+    font-size: 12px;
+  }
+
+  .commentContainer {
+    position: relative;
+    top: 20px;
+  }
+  .commentArea {
+    width: 362px;
+    height: 32px;
+    border: none;
+    border-bottom-left-radius: 10px;
+  }
+  .commentBtn {
+    border: none;
+    border-color: lightgray;
+    color: rgba(5, 153, 252, 0.8);
+    background-color: white;
+    height: 33px;
+    border-bottom-right-radius: 10px;
+    cursor: pointer;
+  }
+  .commentList {
+    font-size: 15px;
+  }
+  .commentDeleteBtn {
+    background-image: url(../../../assets/jiwonLee/delete.png);
+    background-repeat: no-repeat;
+  }
+}
+
+.mainRightContainer {
+  background-color: white;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  width: 300px;
+  height: 350px;
+  position: relative;
+  left: 800px;
+  bottom: 645px;
+}
+
+.story {
+  font-weight: bold;
+  font-size: 15px;
+  position: relative;
+  left: 10px;
+}
+.viewAll {
+  font-size: 15px;
+  position: relative;
+  left: 190px;
+}
+.storyImg3,
+.storyImg4,
+.storyImg5,
+.storyImg6,
+.storyImg11,
+.storyImg12 {
+  border-radius: 100px;
+  border: 1px solid red;
+  padding: 1px 1px 1px 1px;
+  width: 35px;
+  height: 35px;
+  position: relative;
+  top: 23px;
+  left: 7px;
+  margin-bottom: 10px;
+}
+.storyName {
+  font-size: 13px;
+
+  .storyList1 {
+    position: relative;
+    top: -272px;
+    left: 55px;
+    font-weight: bolder;
+  }
+
+  .storyList2 {
+    position: relative;
+    top: -244px;
+    left: 55px;
+    font-weight: bolder;
+  }
+
+  .storyList3 {
+    position: relative;
+    top: -219px;
+    left: 55px;
+    font-weight: bolder;
+  }
+
+  .storyList4 {
+    position: relative;
+    top: -199px;
+    left: 55px;
+    font-weight: bolder;
+  }
+  .storyList11 {
+    position: relative;
+    top: -175px;
+    left: 55px;
+    font-weight: bolder;
+  }
+  .storyList12 {
+    position: relative;
+    top: -150px;
+    left: 55px;
+    font-weight: bolder;
+  }
+
+  .storyTime1 {
+    position: relative;
+    top: -270px;
+    left: 55px;
+    color: gray;
+  }
+
+  .storyTime2 {
+    position: relative;
+    top: -243px;
+    left: 55px;
+    color: gray;
+  }
+
+  .storyTime3 {
+    position: relative;
+    top: -218px;
+    left: 55px;
+    color: gray;
+  }
+
+  .storyTime4 {
+    position: relative;
+    top: -195px;
+    left: 55px;
+    color: gray;
+  }
+  .storyTime11 {
+    position: relative;
+    top: -175px;
+    left: 55px;
+    color: gray;
+  }
+  .storyTime12 {
+    position: relative;
+    top: -150px;
+    left: 55px;
+    color: gray;
+  }
+}
+
+.mainRightRecommend {
+  background-color: white;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  width: 300px;
+  height: 240px;
+  position: relative;
+  top: -90px;
+
+  .recommendText {
+    font-size: 15px;
+    font-weight: bolder;
+    position: relative;
+    left: 10px;
+  }
+  .viewAll2 {
+    font-size: 15px;
+    position: relative;
+    left: 120px;
+  }
+  .addRecommend1 {
+    position: relative;
+    top: -157px;
+    left: 55px;
+    font-size: 13px;
+    font-weight: bold;
+  }
+  .addRecommend2 {
+    position: relative;
+    top: -158px;
+    left: 55px;
+    font-size: 13px;
+    font-weight: bold;
+  }
+  .addRecommend3 {
+    position: relative;
+    top: -157px;
+    left: 55px;
+    font-size: 13px;
+    font-weight: bold;
+  }
+  .addRecommend4 {
+    position: relative;
+    top: -157px;
+    left: 55px;
+    font-size: 13px;
+    font-weight: bold;
+  }
+
+  .recommend7,
+  .recommend8,
+  .recommend9,
+  .recommend10 {
+    border-radius: 100px;
+    position: relative;
+    top: 25px;
+    left: 10px;
+    width: 33px;
+    height: 33px;
+    margin-bottom: 10px;
+  }
+  .follow1,
+  .follow2,
+  .follow3,
+  .follow4 {
+    position: relative;
+    top: -180px;
+    left: 235px;
+    margin-bottom: 10px;
+    border: none;
+    background-color: white;
+    color: rgba(5, 153, 252, 0.8);
+  }
 }

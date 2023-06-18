@@ -9,7 +9,7 @@ const Nav = () => {
       <div className="containar">
         <div className="mainLogo">
           <a href="./main.html">
-            <img src="/images/instagram.png" alt="westagram" />
+            <img src="/images/jiwonLee/instagram.png" alt="westagram" />
           </a>
           <span className="bar" />
           <a href="./main.html" className="logoText">
