@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Main.scss';
 import Nav from '../../../components/Nav/Nav';
+import Comment from '../Comment/CommentBox';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEllipsis, faHeart } from '@fortawesome/free-solid-svg-icons';
 import {
@@ -75,22 +76,7 @@ const Main = () => {
                 <div className="commentsBox">
                   <ul>
                     {commentList.map((newComment, index) => (
-                      <li className="commentBox" key={index}>
-                        <div className="left">
-                          <div className="commentId">genie</div>
-                          <div className="comment">{newComment}</div>
-                        </div>
-
-                        <div className="right">
-                          <button className="commentRemoveBtn">X</button>
-                          <button className="commentlikeBtn">
-                            <FontAwesomeIcon
-                              icon={faHeart}
-                              className="commentlike"
-                            />
-                          </button>
-                        </div>
-                      </li>
+                      <Comment newComment={newComment} key={index} />
                     ))}
                   </ul>
                 </div>
