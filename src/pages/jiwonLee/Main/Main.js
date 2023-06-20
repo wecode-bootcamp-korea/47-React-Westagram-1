@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { BsHeart, BsChat, BsShare, BsBookmark } from 'react-icons/bs';
 import './Main.scss';
 import Nav from '../../../components/Nav/Nav';
+import Comment from '../../jiwonLee/Main/Comment';
 import img2 from '../../../assets/jiwonLee/profileImg.png';
 import img1 from '../../../assets/jiwonLee/feedImg.jpg';
 import img3 from '../../../assets/jiwonLee/story1.png';
@@ -14,34 +15,32 @@ import img9 from '../../../assets/jiwonLee/recommend3.jpg';
 import img10 from '../../../assets/jiwonLee/likeProfile.jpg';
 import img11 from '../../../assets/jiwonLee/story5.png';
 import img12 from '../../../assets/jiwonLee/story6.png';
-import img13 from '../../../assets/jiwonLee/recommend10.jpg';
 
 const Main = () => {
-  const [comments, setComments] = useState([]); // 댓글 배열 상태
+  const [comments, setComments] = useState([]);
 
-  // 댓글 추가 함수
   const addComment = e => {
-    e.preventDefault(); // 폼 기본 동작 방지
+    e.preventDefault();
 
-    const commentInput = e.target.elements.commentInput.value; // 입력된 댓글 내용 가져오기
+    const commentInput = e.target.elements.commentInput.value;
 
     if (commentInput.trim() === '') {
-      return; // 댓글이 비어있으면 함수 종료
+      return;
     }
 
     const newComment = {
-      id: Date.now(), // 고유 ID 생성 (현재 시간 기반)
+      id: Date.now(),
       text: commentInput,
     };
 
-    setComments([...comments, newComment]); // 댓글 배열에 추가
-    e.target.reset(); // 폼 초기화
+    setComments([...comments, newComment]);
+    e.target.reset();
   };
 
-  // 댓글 삭제 함수
   const deleteComment = commentId => {
-    setComments(comments.filter(comment => comment.id !== commentId)); // 댓글 배열에서 해당 ID를 가진 댓글 제외
+    setComments(comments.filter(comment => comment.id !== commentId));
   };
+
   return (
     <div className="mainPage">
       <Nav />
@@ -72,13 +71,22 @@ const Main = () => {
             #ThatsMyDodge <br /> 📸: @_6.4gio_
             <br /> #Dodge #Challenger #DodgeChallenger #SRT #Hell..
           </span>
-          <a href="">
-            <p className="more">더보기..</p>
-          </a>
+
+          <p className="more">더보기..</p>
+
           <span className="userName">badpeople_4 : 🔥🔥🔥🔥🔥🔥</span>
 
           <p className="time">17분 전</p>
           <div className="commentContainer">
+            <ul className="commentList">
+              {comments.map(comment => (
+                <Comment
+                  key={comment.id}
+                  comment={comment}
+                  onDelete={deleteComment}
+                />
+              ))}
+            </ul>
             <form onSubmit={addComment}>
               <input
                 className="commentArea"
@@ -89,19 +97,6 @@ const Main = () => {
               <button className="commentBtn" type="submit">
                 게시
               </button>
-              <ul className="commentList">
-                {comments.map(comment => (
-                  <li key={comment.id} className="commentItem">
-                    <span className="commentText">{comment.text}</span>
-                    <button
-                      className="commentDeleteBtn"
-                      onClick={() => deleteComment(comment.id)}
-                    >
-                      {' '}
-                    </button>
-                  </li>
-                ))}
-              </ul>
             </form>
           </div>
         </article>

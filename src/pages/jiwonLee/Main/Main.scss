@@ -12,8 +12,9 @@
     border: 1px solid lightgray;
     border-radius: 10px;
     width: 430px;
-    height: 690px;
+    // height: 690px;
   }
+
   .myName {
     position: relative;
     left: 40px;
@@ -33,7 +34,7 @@
   }
 
   .feedPicture {
-    border-radius: 3px;
+    border-radius: 1px;
     width: 428px;
     height: 410px;
   }
@@ -127,26 +128,54 @@
     top: 20px;
   }
   .commentArea {
-    width: 362px;
+    width: 417px;
     height: 32px;
-    border: none;
-    border-bottom-left-radius: 10px;
+    margin-left: 5px;
+    border-top: 1px solid lightgray;
+    border-left: none;
+    border-bottom: none;
+    border-right: none;
+    font-size: 12px;
   }
+  .commentArea::placeholder {
+    position: relative;
+    top: 4px;
+    left: 4px;
+  }
+
   .commentBtn {
     border: none;
-    border-color: lightgray;
     color: rgba(5, 153, 252, 0.8);
     background-color: white;
+    font-size: 12px;
     height: 33px;
-    border-bottom-right-radius: 10px;
+    position: relative;
+    left: 387px;
+    bottom: 27px;
     cursor: pointer;
+    &:hover {
+      color: rgba(5, 153, 257);
+    }
   }
+
   .commentList {
     font-size: 15px;
   }
-  .commentDeleteBtn {
-    background-image: url(../../../assets/jiwonLee/delete.png);
-    background-repeat: no-repeat;
+  .commentDelteBtn {
+    // background-image: url(../../../assets/jiwonLee/delete.png);
+    // background-repeat: no-repeat;
+    border: none;
+    background-color: white;
+    width: 5px;
+    height: 5px;
+    position: relative;
+    left: 10px;
+    bottom: 1px;
+  }
+  .commentText {
+    position: relative;
+    left: 10px;
+    font-size: 15px;
   }
 }
 
@@ -158,16 +187,16 @@
   height: 350px;
   position: relative;
   left: 800px;
-  bottom: 645px;
+  bottom: 625px;
 }
 
 .story {
-  font-weight: bold;
   font-size: 15px;
   position: relative;
   left: 10px;
 }
 .viewAll {
+  font-weight: bolder;
   font-size: 15px;
   position: relative;
   left: 190px;
@@ -283,11 +312,11 @@
 
   .recommendText {
     font-size: 15px;
-    font-weight: bolder;
     position: relative;
     left: 10px;
   }
   .viewAll2 {
+    font-weight: bolder;
     font-size: 15px;
     position: relative;
     left: 120px;
@@ -344,5 +373,8 @@
     border: none;
     background-color: white;
     color: rgba(5, 153, 252, 0.8);
+    &:hover {
+      color: rgba(5, 153, 257);
+    }
   }
 }
