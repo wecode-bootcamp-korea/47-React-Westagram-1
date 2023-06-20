@@ -16,8 +16,8 @@ const Router = () => {
       <Routes>
         <Route path="/login-jini" element={<LoginJini />} />
         <Route path="/main-jini" element={<MainJini />} />
-        <Route path="/login-jiwon" element={<LoginJiwon />} />
-        <Route path="/main-jiwon" element={<MainJiwon />} />
+        <Route path="/" element={<LoginJiwon />} />
+        <Route path="/Main" element={<MainJiwon />} />
       </Routes>
     </BrowserRouter>
   );
