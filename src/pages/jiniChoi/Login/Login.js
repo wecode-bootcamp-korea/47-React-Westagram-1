@@ -1,20 +1,23 @@
 import React, { useState } from 'react';
-import './Login.scss';
 import { useNavigate } from 'react-router-dom';
+import './Login.scss';
 
 const Login = () => {
   const navigate = useNavigate();
 
-  const [id, setID] = useState('');
-  const [pw, setPw] = useState('');
+  const [inputValues, setInputValues] = useState({
+    id: '',
+    pw: '',
+  });
   const [loginBtn, setloginBtn] = useState(false);
 
-  const saveUserId = event => setID(event.target.value);
-
-  const saveUserPw = event => setPw(event.target.value);
+  const handleInput = e => {
+    const { name, value } = e.target;
+    setInputValues({ ...inputValues, [name]: value });
+  };
 
   const passedLogin = () => {
-    return id.includes('@') && pw.length >= 5
+    return inputValues.id.includes('@') && inputValues.pw.length >= 5
       ? setloginBtn(true)
       : setloginBtn(false);
   };
@@ -30,23 +33,27 @@ const Login = () => {
             type="text"
             placeholder="전화번호, 사용자 이름 또는 이메일"
             className="id"
-            value={id}
-            onChange={saveUserId}
+            value={inputValues.id}
+            onChange={handleInput}
             onKeyUp={passedLogin}
+            name="id"
           />
           <input
             type="password"
             placeholder="비밀번호"
             className="pw"
-            value={pw}
-            onChange={saveUserPw}
+            value={inputValues.pw}
+            onChange={handleInput}
             onKeyUp={passedLogin}
+            name="pw"
           />
           {/* <Link to="/main">이동</Link> */}
           <button
             onClick={() => navigate('/main-jini')}
             className={loginBtn ? 'activeLoginBtn' : 'loginBtn'}
-            disabled={id === '' || pw === '' ? true : false}
+            disabled={
+              inputValues.id === '' || inputValues.pw === '' ? true : false
+            }
           >
             로그인
           </button>

@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import './Main.scss';
+
+import { FOOTER_LIST } from './MainData';
 import Nav from '../../../components/Nav/Nav';
 import Comment from '../Comment/CommentBox';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEllipsis, faHeart } from '@fortawesome/free-solid-svg-icons';
 import {
@@ -9,6 +11,8 @@ import {
   faPaperPlane,
   faBookmark,
 } from '@fortawesome/free-regular-svg-icons';
+
+import './Main.scss';
 
 const Main = () => {
   const [commentList, setCommentList] = useState([]);
@@ -218,9 +222,9 @@ const Main = () => {
 
             <footer>
               <p>
-                Instagram 정보 · 지원 · 홍보센터 · API ·<br />
-                채용 정보 · 개인정보처리방침 · 약관 ·<br />
-                디렉터리 · 프로필 · 해시태그 · 언어
+                {FOOTER_LIST.map(info => (
+                  <span key={info.id}>{info.text}</span>
+                ))}
               </p>
               <span>© 2023 WESTAGRAM</span>
             </footer>
