@@ -8,19 +8,19 @@
   {
     "id": 2,
     "userId": "biki",
-    "img": "./images/jiniChoi/feed1.png",
+    "img": "./images/jiniChoi/feed2.jpeg",
     "likes": "jini님 외 1087명이 좋아합니다."
   },
   {
     "id": 3,
     "userId": "gilyong",
-    "img": "./images/jiniChoi/feed1.png",
+    "img": "./images/jiniChoi/feed3.jpeg",
     "likes": "dongin님 외 10234827명이 좋아합니다."
   },
   {
     "id": 4,
     "userId": "moa",
-    "img": "./images/jiniChoi/feed1.png",
+    "img": "./images/jiniChoi/feed4.jpeg",
     "likes": "wecode님 외 2명이 좋아합니다."
   }
 ]
