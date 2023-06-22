@@ -1,3 +1,304 @@
-div {
-  font-size: 24px;
+@import './src/styles/variables';
+@import '../Comment/Commentbox';
+.Main {
+  /* main */
+  main {
+    display: flex;
+
+    .containar {
+      display: flex;
+      justify-content: space-between;
+      width: 1020px;
+      margin: 70px auto 0;
+
+      /* feeds */
+      .feedsContainar {
+        width: 65%;
+        .feeds {
+          width: 100%;
+          margin-bottom: 30px;
+          border: 1px solid $BoxborderDefaultColor;
+          background: $white;
+
+          .feedsMenu {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 60px;
+            border-bottom: 1px solid $BoxborderDefaultColor;
+
+            .user {
+              display: flex;
+              margin-left: 15px;
+
+              .userImg {
+                width: 25px;
+                height: 25px;
+                border: 1px solid $BoxborderDefaultColor;
+                border-radius: 100%;
+                background: #abc;
+              }
+
+              .userId {
+                margin-left: 15px;
+                font-weight: bold;
+                line-height: 25px;
+              }
+            }
+
+            .more {
+              margin-right: 15px;
+            }
+          }
+
+          .feedMainContents {
+            .feedImg {
+              width: 100%;
+
+              img {
+                display: block;
+                max-width: 100%;
+                border-bottom: 1px solid $BoxborderDefaultColor;
+              }
+            }
+
+            .feedUtilMenu {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              height: 40px;
+              margin: 0 15px;
+
+              .left {
+                display: flex;
+                justify-content: space-between;
+                width: 100px;
+
+                .UtilMenuComment,
+                .UtilMenuShare {
+                  color: #000;
+                  font-size: 25px;
+                }
+
+                .UtilMenuLike {
+                  color: #ee4956;
+                  font-size: 25px;
+                }
+              }
+
+              .right {
+                .UtilMenuBookmark {
+                  color: #000;
+                  font-size: 25px;
+                }
+              }
+            }
+
+            .feedLikes {
+              display: flex;
+              align-items: center;
+              margin-left: 15px;
+              .feedLikesImg {
+                width: 20px;
+                height: 20px;
+                border: 1px solid $BoxborderDefaultColor;
+                border-radius: 100%;
+                background: #abcdef;
+              }
+              .feedLikesText {
+                margin-left: 5px;
+                line-height: 30px;
+                span {
+                  font-weight: bold;
+                }
+              }
+            }
+            //CommentsBox.scss
+          }
+        }
+      }
+      /* feeds end */
+
+      /* mainRight */
+      .mainRight {
+        width: 32%;
+
+        .myProfil {
+          display: flex;
+          align-items: center;
+          height: 60px;
+          margin-bottom: 15px;
+
+          .myProfilImg {
+            width: 50px;
+            height: 50px;
+            margin-right: 15px;
+            border: 1px solid $BoxborderDefaultColor;
+            border-radius: 100%;
+            background: url(../../../assets/jiniChoi/user1.jpeg) no-repeat
+              center / cover;
+          }
+
+          .myProfilText {
+            display: flex;
+            flex-direction: column;
+
+            .myProfilId {
+              font-size: 18px;
+              font-weight: bold;
+            }
+            .myProfilName {
+              color: $subText;
+            }
+          }
+        }
+
+        .story {
+          height: 250px;
+          margin-bottom: 15px;
+          padding: 20px 15px 0;
+          overflow-y: scroll;
+          border: 1px solid $BoxborderDefaultColor;
+          background: $white;
+          -ms-overflow-style: none; /* 인터넷 익스플로러 */
+          scrollbar-width: none; /* 파이어폭스 */
+
+          /* ( 크롬, 사파리, 오페라, 엣지 ) 동작 */
+          &::-webkit-scrollbar {
+            display: none;
+          }
+
+          .title {
+            display: flex;
+            justify-content: space-between;
+
+            h3 {
+              color: $subText;
+            }
+
+            .more {
+              font-weight: bold;
+            }
+          }
+
+          ul {
+            margin-top: 5px;
+
+            li {
+              display: flex;
+              align-items: center;
+              height: 60px;
+
+              .gradient {
+                position: relative;
+                width: 45px;
+                height: 45px;
+                border-radius: 100%;
+                background: linear-gradient(225deg, #d300c5, #ff244a, #ffc900);
+
+                .followProfilImg {
+                  position: absolute;
+                  width: 40px;
+                  height: 40px;
+                  transform: translate(6%, 6%);
+                  border: 2.5px solid $white;
+                  border-radius: 100%;
+                  background: url(../../../assets/jiniChoi/user2.jpeg) no-repeat
+                    center center;
+                }
+              }
+
+              .followProfilText {
+                display: flex;
+                flex-direction: column;
+                margin-left: 15px;
+
+                .followProfilId {
+                  font-size: 18px;
+                  font-weight: bold;
+                }
+                .followAccessTime {
+                  color: $subText;
+                }
+              }
+            }
+          }
+        }
+
+        .recommendation {
+          height: 230px;
+          margin-bottom: 15px;
+          padding: 20px 15px 0;
+          border: 1px solid $BoxborderDefaultColor;
+          background: $white;
+
+          .title {
+            display: flex;
+            justify-content: space-between;
+
+            h3 {
+              color: $subText;
+            }
+            .more {
+              font-weight: bold;
+            }
+          }
+
+          ul {
+            margin-top: 5px;
+
+            li {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              height: 60px;
+
+              .recommendationImg {
+                width: 40px;
+                height: 40px;
+                border: 1px solid $BoxborderDefaultColor;
+                border-radius: 100%;
+                background: #ee4956;
+              }
+              .recommendationText {
+                display: flex;
+                flex-direction: column;
+
+                .recommendationId {
+                  font-size: 18px;
+                  font-weight: bold;
+                }
+                .recommendationFollow {
+                  width: 170px;
+                  overflow: hidden;
+                  color: $subText;
+                  text-overflow: ellipsis;
+                  white-space: nowrap;
+                }
+              }
+
+              .followBtn {
+                border: none;
+                background: none;
+                color: #55b6f9;
+                font-weight: bold;
+                cursor: pointer;
+              }
+            }
+          }
+        }
+
+        footer {
+          color: #d7d7d7;
+
+          p {
+            margin-bottom: 20px;
+            line-height: 20px;
+          }
+        }
+      }
+    }
+    /* mainRight end */
+  }
+  /* main end */
 }

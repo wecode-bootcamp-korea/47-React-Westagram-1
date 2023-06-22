@@ -1,0 +1,36 @@
+li.commentBox {
+  display: flex;
+  justify-content: space-between;
+  line-height: 20px;
+
+  .left {
+    display: flex;
+    .commentId {
+      margin-right: 10px;
+      font-weight: bold;
+    }
+  }
+
+  .right {
+    display: flex;
+
+    .commentRemoveBtn {
+      border: none;
+      background: none;
+      color: $subText;
+      cursor: pointer;
+    }
+    .commentlikeBtn {
+      margin-left: 5px;
+      border: none;
+      background: none;
+      /* color: $subText; */
+      color: #ee4956;
+      font-size: 15px;
+      cursor: pointer;
+    }
+    .commentlikeBtn.active {
+      color: #ee4956;
+    }
+  }
+}

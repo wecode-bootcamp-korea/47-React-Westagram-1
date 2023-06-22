@@ -1,0 +1,43 @@
+@import '../Comment/CommentList';
+
+.commentsBox {
+  margin: 5px 15px;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+
+    // li.commentList
+  }
+}
+
+.commentPost {
+  display: flex;
+  justify-content: space-between;
+  height: 40px;
+  padding: 0 15px;
+  border-top: 1px solid $BoxborderDefaultColor;
+
+  .inputText {
+    width: 500px;
+    border: none;
+
+    &::placeholder {
+      color: $InputDefaultColor;
+    }
+    &:focus {
+      outline: none;
+    }
+  }
+  .submitBtn {
+    border: none;
+    background: none;
+    color: #55b6f9;
+    font-weight: bold;
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
