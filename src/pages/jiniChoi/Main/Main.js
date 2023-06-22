@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { FOOTER_LIST } from './MainData';
 import Nav from '../../../components/Nav/Nav';
-import Comment from '../Comment/CommentBox';
+import CommentBox from '../Comment/CommentBox';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEllipsis, faHeart } from '@fortawesome/free-solid-svg-icons';
@@ -15,93 +15,69 @@ import {
 import './Main.scss';
 
 const Main = () => {
-  const [commentList, setCommentList] = useState([]);
-  const [newComment, setNewComment] = useState('');
+  const [feeds, setFeeds] = useState([]);
 
-  const handleCommentSubmit = e => {
-    e.preventDefault();
-    if (newComment.trim() === '') {
-      return;
-    }
-
-    setCommentList([...commentList, newComment]);
-    setNewComment('');
-  };
-
-  const newCommentInput = event => setNewComment(event.target.value);
+  useEffect(() => {
+    fetch('./data/mainFeedData.json')
+      .then(res => res.json())
+      .then(data => setFeeds(data));
+  }, []);
 
   return (
     <div className="Main">
       <Nav />
       <main>
         <div className="containar">
-          <section className="feeds">
-            <article>
-              <div className="feedsMenu">
-                <div className="user">
-                  <div className="userImg" />
-                  <div className="userId">navi</div>
-                </div>
-                <FontAwesomeIcon icon={faEllipsis} className="more" />
-              </div>
-
-              <div className="feedMainContents">
-                <div className="feedImg">
-                  <img src="./images/jiniChoi/feed1.png" alt="" />
-                </div>
-
-                <div className="feedUtilMenu">
-                  <div className="left">
-                    <FontAwesomeIcon icon={faHeart} className="UtilMenuLike" />
-                    <FontAwesomeIcon
-                      icon={faComment}
-                      className="UtilMenuComment"
-                    />
-                    <FontAwesomeIcon
-                      icon={faPaperPlane}
-                      className="UtilMenuShare"
-                    />
+          <div className="feedsContainar">
+            {feeds.map(info => (
+              <section className="feeds" key={info.id}>
+                <article>
+                  <div className="feedsMenu">
+                    <div className="user">
+                      <div className="userImg" />
+                      <div className="userId">{info.userId}</div>
+                    </div>
+                    <FontAwesomeIcon icon={faEllipsis} className="more" />
                   </div>
-                  <div className="right">
-                    <FontAwesomeIcon
-                      icon={faBookmark}
-                      className="UtilMenuBookmark"
-                    />
+
+                  <div className="feedMainContents">
+                    <div className="feedImg">
+                      <img src={info.img} alt="" />
+                    </div>
+
+                    <div className="feedUtilMenu">
+                      <div className="left">
+                        <FontAwesomeIcon
+                          icon={faHeart}
+                          className="UtilMenuLike"
+                        />
+                        <FontAwesomeIcon
+                          icon={faComment}
+                          className="UtilMenuComment"
+                        />
+                        <FontAwesomeIcon
+                          icon={faPaperPlane}
+                          className="UtilMenuShare"
+                        />
+                      </div>
+                      <div className="right">
+                        <FontAwesomeIcon
+                          icon={faBookmark}
+                          className="UtilMenuBookmark"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="feedLikes">
+                      <div className="feedLikesImg" />
+                      <div className="feedLikesText">{info.likes}</div>
+                    </div>
+                    <CommentBox />
                   </div>
-                </div>
-
-                <div className="feedLikes">
-                  <div className="feedLikesImg" />
-                  <div className="feedLikesText">
-                    <span>sagong</span>님 외 <span>10명</span>이 좋아합니다.
-                  </div>
-                </div>
-
-                <div className="commentsBox">
-                  <ul>
-                    {commentList.map((newComment, index) => (
-                      <Comment newComment={newComment} key={index} />
-                    ))}
-                  </ul>
-                </div>
-
-                <form className="commentPost" onSubmit={handleCommentSubmit}>
-                  <input
-                    required
-                    type="text"
-                    placeholder="댓글 달기..."
-                    className="inputText"
-                    value={newComment}
-                    onChange={newCommentInput}
-                  />
-                  <button type="submit" className="submitBtn">
-                    게시
-                  </button>
-                </form>
-              </div>
-            </article>
-          </section>
-
+                </article>
+              </section>
+            ))}
+          </div>
           <aside className="mainRight">
             <div className="myProfil">
               <div className="myProfilImg" />

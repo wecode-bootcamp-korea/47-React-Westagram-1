@@ -1,6 +1,5 @@
 @import './src/styles/variables';
-@import '../Comment/CommentBox';
-
+@import '../Comment/Commentbox';
 .Main {
   /* main */
   main {
@@ -13,146 +12,108 @@
       margin: 70px auto 0;
 
       /* feeds */
-      .feeds {
+      .feedsContainar {
         width: 65%;
-        margin-bottom: 50px;
-        border: 1px solid $BoxborderDefaultColor;
-        background: $white;
+        .feeds {
+          width: 100%;
+          margin-bottom: 30px;
+          border: 1px solid $BoxborderDefaultColor;
+          background: $white;
 
-        .feedsMenu {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          height: 60px;
-          border-bottom: 1px solid $BoxborderDefaultColor;
-
-          .user {
+          .feedsMenu {
             display: flex;
-            margin-left: 15px;
+            align-items: center;
+            justify-content: space-between;
+            height: 60px;
+            border-bottom: 1px solid $BoxborderDefaultColor;
 
-            .userImg {
-              width: 25px;
-              height: 25px;
-              border: 1px solid $BoxborderDefaultColor;
-              border-radius: 100%;
-              background: #abc;
-            }
-
-            .userId {
+            .user {
+              display: flex;
               margin-left: 15px;
-              font-weight: bold;
-              line-height: 25px;
-            }
-          }
 
-          .more {
-            margin-right: 15px;
-          }
-        }
-
-        .feedMainContents {
-          .feedImg {
-            width: 100%;
-
-            img {
-              display: block;
-              max-width: 100%;
-              border-bottom: 1px solid $BoxborderDefaultColor;
-            }
-          }
-
-          .feedUtilMenu {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            height: 40px;
-            margin: 0 15px;
-
-            .left {
-              display: flex;
-              justify-content: space-between;
-              width: 100px;
-
-              .UtilMenuComment,
-              .UtilMenuShare {
-                color: #000;
-                font-size: 25px;
+              .userImg {
+                width: 25px;
+                height: 25px;
+                border: 1px solid $BoxborderDefaultColor;
+                border-radius: 100%;
+                background: #abc;
               }
 
-              .UtilMenuLike {
-                color: #ee4956;
-                font-size: 25px;
-              }
-            }
-
-            .right {
-              .UtilMenuBookmark {
-                color: #000;
-                font-size: 25px;
-              }
-            }
-          }
-
-          .feedLikes {
-            display: flex;
-            align-items: center;
-            margin-left: 15px;
-            .feedLikesImg {
-              width: 20px;
-              height: 20px;
-              border: 1px solid $BoxborderDefaultColor;
-              border-radius: 100%;
-              background: #abcdef;
-            }
-            .feedLikesText {
-              margin-left: 5px;
-              line-height: 30px;
-              span {
+              .userId {
+                margin-left: 15px;
                 font-weight: bold;
+                line-height: 25px;
               }
+            }
+
+            .more {
+              margin-right: 15px;
             }
           }
 
-          .commentsBox {
-            margin: 5px 15px;
+          .feedMainContents {
+            .feedImg {
+              width: 100%;
 
-            ul {
+              img {
+                display: block;
+                max-width: 100%;
+                border-bottom: 1px solid $BoxborderDefaultColor;
+              }
+            }
+
+            .feedUtilMenu {
               display: flex;
-              flex-direction: column;
+              align-items: center;
+              justify-content: space-between;
+              height: 40px;
+              margin: 0 15px;
 
-              // li.commentBox
-            }
-          }
+              .left {
+                display: flex;
+                justify-content: space-between;
+                width: 100px;
 
-          .commentPost {
-            display: flex;
-            justify-content: space-between;
-            height: 40px;
-            padding: 0 15px;
-            border-top: 1px solid $BoxborderDefaultColor;
+                .UtilMenuComment,
+                .UtilMenuShare {
+                  color: #000;
+                  font-size: 25px;
+                }
 
-            .inputText {
-              width: 500px;
-              border: none;
-
-              &::placeholder {
-                color: $InputDefaultColor;
+                .UtilMenuLike {
+                  color: #ee4956;
+                  font-size: 25px;
+                }
               }
-              &:focus {
-                outline: none;
-              }
-            }
-            .submitBtn {
-              border: none;
-              background: none;
-              color: #55b6f9;
-              font-weight: bold;
-              cursor: pointer;
 
-              &:focus {
-                outline: none;
+              .right {
+                .UtilMenuBookmark {
+                  color: #000;
+                  font-size: 25px;
+                }
               }
             }
+
+            .feedLikes {
+              display: flex;
+              align-items: center;
+              margin-left: 15px;
+              .feedLikesImg {
+                width: 20px;
+                height: 20px;
+                border: 1px solid $BoxborderDefaultColor;
+                border-radius: 100%;
+                background: #abcdef;
+              }
+              .feedLikesText {
+                margin-left: 5px;
+                line-height: 30px;
+                span {
+                  font-weight: bold;
+                }
+              }
+            }
+            //CommentsBox.scss
           }
         }
       }
